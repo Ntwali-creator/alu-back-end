@@ -23,7 +23,6 @@ def export_all_todos_to_json():
     # Fetch all users
     users_response = requests.get(base_url + "/users")
     if users_response.status_code != 200:
-        print("Could not fetch users")
         return
     
     users = users_response.json()
@@ -31,7 +30,6 @@ def export_all_todos_to_json():
     # Fetch all todos
     todos_response = requests.get(base_url + "/todos")
     if todos_response.status_code != 200:
-        print("Could not fetch todos")
         return
     
     all_todos = todos_response.json()
@@ -61,8 +59,6 @@ def export_all_todos_to_json():
     filename = "todo_all_employees.json"
     with open(filename, mode='w', encoding='utf-8') as json_file:
         json.dump(data, json_file)
-    
-    print("All data exported to {}".format(filename))
 
 
 if __name__ == "__main__":

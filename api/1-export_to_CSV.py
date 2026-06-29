@@ -50,8 +50,6 @@ def export_todos_to_csv(employee_id):
                 todo.get("completed"),
                 todo.get("title")
             ])
-    
-    print("Data exported to {}".format(filename))
 
 
 if __name__ == "__main__":

@@ -54,8 +54,6 @@ def export_todos_to_json(employee_id):
     filename = "{}.json".format(employee_id)
     with open(filename, mode='w', encoding='utf-8') as json_file:
         json.dump(data, json_file)
-    
-    print("Data exported to {}".format(filename))
 
 
 if __name__ == "__main__":
