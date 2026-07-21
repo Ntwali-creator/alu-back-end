@@ -11,16 +11,9 @@ import sys
 def get_employee_todo_progress(employee_id):
     """
     Retrieves and displays TODO list progress for a specific employee.
-
-    Args:
-        employee_id (int): The ID of the employee
-
-    Returns:
-        None: Prints the employee's TODO list progress to stdout
     """
     base_url = "https://jsonplaceholder.typicode.com"
 
-    # Fetch user information
     user_response = requests.get(f"{base_url}/users/{employee_id}")
     if user_response.status_code != 200:
         return
@@ -28,11 +21,7 @@ def get_employee_todo_progress(employee_id):
     user_data = user_response.json()
     employee_name = user_data.get("name")
 
-    # Fetch TODO list for the user
-    todos_response = requests.get(
-        f"{base_url}/todos",
-        params={"userId": employee_id}
-    )
+    todos_response = requests.get(f"{base_url}/todos", params={"userId": employee_id})
     if todos_response.status_code != 200:
         return
 
@@ -42,12 +31,10 @@ def get_employee_todo_progress(employee_id):
     completed_tasks = [task for task in todos_data if task.get("completed")]
     number_done = len(completed_tasks)
 
-    # First line with employee name and task counts
     print("Employee {} is done with tasks({}/{}):".format(
         employee_name, number_done, total_tasks))
 
-    # Print ALL tasks (both completed and not completed)
-    for task in todos_data:
+    for task in completed_tasks:
         print("\t {}".format(task.get("title")))
 
 
