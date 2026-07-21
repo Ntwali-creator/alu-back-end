@@ -1,5 +1,8 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45fd89968ac74864eaade0c2bd729911924a5cac
 """
 This module fetches and displays TODO list progress for a given employee ID.
 """
@@ -15,7 +18,10 @@ def get_employee_todo_progress(employee_id):
     base_url = "https://jsonplaceholder.typicode.com"
     
     # Fetch user information
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45fd89968ac74864eaade0c2bd729911924a5cac
     user_response = requests.get(f"{base_url}/users/{employee_id}")
     if user_response.status_code != 200:
         return
@@ -24,7 +30,10 @@ def get_employee_todo_progress(employee_id):
     employee_name = user_data.get("name")
     
     # Fetch TODO list
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45fd89968ac74864eaade0c2bd729911924a5cac
     todos_response = requests.get(f"{base_url}/todos", params={"userId": employee_id})
     if todos_response.status_code != 200:
         return
