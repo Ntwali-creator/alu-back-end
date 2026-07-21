@@ -21,7 +21,10 @@ def get_employee_todo_progress(employee_id):
     user_data = user_response.json()
     employee_name = user_data.get("name")
 
-    todos_response = requests.get(f"{base_url}/todos", params={"userId": employee_id})
+    todos_response = requests.get(
+        f"{base_url}/todos",
+        params={"userId": employee_id}
+    )
     if todos_response.status_code != 200:
         return
 
