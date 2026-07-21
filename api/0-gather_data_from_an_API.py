@@ -29,7 +29,10 @@ def get_employee_todo_progress(employee_id):
     employee_name = user_data.get("name")
 
     # Fetch TODO list for the user
-    todos_response = requests.get(f"{base_url}/todos", params={"userId": employee_id})
+    todos_response = requests.get(
+        f"{base_url}/todos",
+        params={"userId": employee_id}
+    )
     if todos_response.status_code != 200:
         return
 
@@ -39,10 +42,12 @@ def get_employee_todo_progress(employee_id):
     completed_tasks = [task for task in todos_data if task.get("completed")]
     number_done = len(completed_tasks)
 
+    # First line with employee name and task counts
     print("Employee {} is done with tasks({}/{}):".format(
         employee_name, number_done, total_tasks))
 
-    for task in completed_tasks:
+    # Print ALL tasks (both completed and not completed)
+    for task in todos_data:
         print("\t {}".format(task.get("title")))
 
 
