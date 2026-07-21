@@ -28,8 +28,9 @@ if __name__ == "__main__":
         })
 
     output_data = {employee_id: serialized_todos}
+    filename = f"{employee_id}.json"
 
-    with open(f"{employee_id}.json", 'w') as file:
+    with open(filename, 'w') as file:
         json.dump(output_data, file, indent=4)
 
-    print(f"Tasks for employee {employee_id} exported to {file_name}.")
+    print(f"Tasks for employee {employee_id} exported to {filename}.")
